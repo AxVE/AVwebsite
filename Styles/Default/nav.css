@@ -1,0 +1,94 @@
+/*
+Ce menu prend tout la largeur et est réactif au survol de la souris :
+	il cache les élèments de la class dropcontent (fils d'une classe dropmenu) et l'affiche lorsque la souris est sur un élèment de la classe drop (dont dropbtn.
+*/
+nav {
+	text-align: center;
+	padding-top: 1em;
+	margin-top: 0;
+	padding-bottom: 0.4em;
+	border-top: none;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+}
+/* On supprime la taille du text afin que les espaces blancs et insécables
+du code html n'apparaisse pas entre les inline-blocks des enfants.
+On définit la haute du navigateur comme hauteur de ligne pour aligne
+correctement.
+*/
+nav ul {
+	display: inline-block;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: visible;
+	font-size: 0;
+	line-height: 1rem;
+	vertical-align: middle;
+}
+
+/* Les élèments (li et a) du menu sont mis en ligne.
+On aggrandit les cases des élèments et on remet la 
+hauteur de ligne comme normale.
+*/
+nav li {
+	line-height: normal;
+	display: inline-block;
+	margin: 0 0.1rem;
+	vertical-align: middle;
+}
+
+/* On aggrandit également les cases des SOUS-élèments (les a dans les dropcontent)
+On remet la taille du texte.
+On ajoute des bords "transparents" pour que l'image répétée du milieu ne se superpose pas
+*/
+
+nav a { 
+	color:var(--color-txt);
+	font-size: 1.5rem;
+	padding: 0.4rem;
+	margin: 0;
+	text-decoration: none;
+	display: inline-block;
+	background-color: var(--color-button-idle);
+	border-style: outset;
+	border-color: var(--color-borders);
+	border-radius: var(--radius-button-borders);
+}
+
+/* On met les images (icones des boutons) à la bonne taille */
+nav img {
+	height: 20px;
+	width: auto;
+	padding: 0;
+	margin: 0;
+	vertical-align: middle;
+}
+
+/* On met en évidence les élèments/sous-élèments liens ayant
+la souris dessus 
+On garde en évidence l'élèment parent des sous-élèments affichés
+*/
+nav a:hover, nav .dropmenu:hover .dropbtn {
+	background-color: var(--color-button-hover);
+	border-style: inset;
+}
+
+/* On cache par défaut les sous-élèments */
+nav .dropcontent {
+	display: none;
+	position: absolute;
+}
+
+
+/* Lorsque la souris est sur un des élèments (et ses sous-élèments), on
+affiche ses sous-élèments */
+nav .dropmenu:hover .dropcontent {
+	display: block;
+}
+
+/* Correct display */
+nav h1, nav h2{
+	font-size: 1rem;
+	font-weight: normal;
+}

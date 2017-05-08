@@ -1,0 +1,63 @@
+:root {
+	--color-bg: white;
+	--color-txt: black;
+	--color-1: orange;
+	--color-2: blue;
+	--color-borders: darkgray;
+	--color-button-idle: white;
+	--color-button-hover: gray;	
+	--radius-button-borders: 8px;
+}
+
+
+html{
+	font-size: 16px; /*Font-size's base for all the website. Default is 16px.*/
+}
+
+body{
+	font-size: 1rem;
+	position: relative;
+	min-width: 400px;
+	background-color: gray;
+	background-image: url("circuitboard-pattern.png");
+	background-repeat: repeat;
+}
+
+h1{
+	color: var(--color-1);
+	text-transform: uppercase;
+	font-size: 2em;
+	font-weight: bolder;
+	letter-spacing: 0.05em;
+	text-shadow: 
+		1px 0px 0 black,
+		-1px 0px 0 black,
+		0px 1px 0 black,
+		0px -1px 0 black;
+	margin: 0;
+	padding: 0;
+}
+
+h2{
+	color: var(--color-2);
+	font-size: 1.5em;
+	font-weight: bold;
+	text-shadow: 
+		1px 0px 0 black,
+		-1px 0px 0 black,
+		0px 1px 0 black,
+		0px -1px 0 black;
+	margin: 0;
+	padding: 0;
+}
+
+header,nav,main,aside,footer,details{
+	background-color: var(--color-bg);
+	box-sizing: border-box;
+	margin: 0 0 0.4em 0;
+	padding: 1em;
+	width: 100%;
+	border: ridge 0.4em var(--color-borders);
+	border-radius: 15px;
+	overflow: hidden;
+}

@@ -1,0 +1,34 @@
+footer{
+	clear: both; /* remove floats */
+	border-bottom: none;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+/* basic style */
+footer h1, footer h2{
+	display: inline; /* Remove breakline */
+	color: var(--color-txt);
+	font-size: 1rem;
+	text-shadow: none;
+}
+
+footer h2{font-weight:normal;}
+
+/* After each link (each menu part), add a line break ('\A') and 
+make the web browser rends it with 'pre'*/
+footer li div.dropcontent a:after {
+	content:'\A';
+	white-space: pre;
+}
+
+
+/* TESTS */
+footer li {
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	padding: 0.2rem;
+}

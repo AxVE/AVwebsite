@@ -1,0 +1,255 @@
+:root {
+	--color-bg: white;
+	--color-txt: black;
+	--color-1: orange;
+	--color-2: blue;
+	--color-borders: darkgray;
+	--color-button-idle: white;
+	--color-button-hover: gray;	
+	--radius-button-borders: 8px;
+}
+
+
+html{
+	font-size: 16px; /*Font-size's base for all the website. Default is 16px.*/
+}
+
+body{
+	font-size: 1rem;
+	position: relative;
+	min-width: 400px;
+	background-color: gray;
+	background-image: url("circuitboard-pattern.png");
+	background-repeat: repeat;
+}
+
+h1{
+	color: var(--color-1);
+	text-transform: uppercase;
+	font-size: 2em;
+	font-weight: bolder;
+	letter-spacing: 0.05em;
+	text-shadow: 
+		1px 0px 0 black,
+		-1px 0px 0 black,
+		0px 1px 0 black,
+		0px -1px 0 black;
+	margin: 0;
+	padding: 0;
+}
+
+h2{
+	color: var(--color-2);
+	font-size: 1.5em;
+	font-weight: bold;
+	text-shadow: 
+		1px 0px 0 black,
+		-1px 0px 0 black,
+		0px 1px 0 black,
+		0px -1px 0 black;
+	margin: 0;
+	padding: 0;
+}
+
+header,nav,main,aside,footer,details{
+	background-color: var(--color-bg);
+	box-sizing: border-box;
+	margin: 0 0 0.4em 0;
+	padding: 1em;
+	width: 100%;
+	border: ridge 0.4em var(--color-borders);
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+header {
+	border-bottom: none;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+header h1 {
+	font-size: 3em;
+	letter-spacing: 0.1em;
+}
+
+header h2 {
+	font-size: 2em;
+	letter-spacing: 0.05em;
+	text-indent: 1em;
+}
+
+/*
+Ce menu prend tout la largeur et est réactif au survol de la souris :
+	il cache les élèments de la class dropcontent (fils d'une classe dropmenu) et l'affiche lorsque la souris est sur un élèment de la classe drop (dont dropbtn.
+*/
+nav {
+	text-align: center;
+	padding-top: 1em;
+	margin-top: 0;
+	padding-bottom: 0.4em;
+	border-top: none;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+}
+/* On supprime la taille du text afin que les espaces blancs et insécables
+du code html n'apparaisse pas entre les inline-blocks des enfants.
+On définit la haute du navigateur comme hauteur de ligne pour aligne
+correctement.
+*/
+nav ul {
+	display: inline-block;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: visible;
+	font-size: 0;
+	line-height: 1rem;
+	vertical-align: middle;
+}
+
+/* Les élèments (li et a) du menu sont mis en ligne.
+On aggrandit les cases des élèments et on remet la 
+hauteur de ligne comme normale.
+*/
+nav li {
+	line-height: normal;
+	display: inline-block;
+	margin: 0 0.1rem;
+	vertical-align: middle;
+}
+
+/* On aggrandit également les cases des SOUS-élèments (les a dans les dropcontent)
+On remet la taille du texte.
+On ajoute des bords "transparents" pour que l'image répétée du milieu ne se superpose pas
+*/
+
+nav a { 
+	color:var(--color-txt);
+	font-size: 1.5rem;
+	padding: 0.4rem;
+	margin: 0;
+	text-decoration: none;
+	display: inline-block;
+	background-color: var(--color-button-idle);
+	border-style: outset;
+	border-color: var(--color-borders);
+	border-radius: var(--radius-button-borders);
+}
+
+/* On met les images (icones des boutons) à la bonne taille */
+nav img {
+	height: 20px;
+	width: auto;
+	padding: 0;
+	margin: 0;
+	vertical-align: middle;
+}
+
+/* On met en évidence les élèments/sous-élèments liens ayant
+la souris dessus 
+On garde en évidence l'élèment parent des sous-élèments affichés
+*/
+nav a:hover, nav .dropmenu:hover .dropbtn {
+	background-color: var(--color-button-hover);
+	border-style: inset;
+}
+
+/* On cache par défaut les sous-élèments */
+nav .dropcontent {
+	display: none;
+	position: absolute;
+}
+
+
+/* Lorsque la souris est sur un des élèments (et ses sous-élèments), on
+affiche ses sous-élèments */
+nav .dropmenu:hover .dropcontent {
+	display: block;
+}
+
+/* Correct display */
+nav h1, nav h2{
+	font-size: 1rem;
+	font-weight: normal;
+}
+
+main{
+	float: left;
+	width: 84.5%;
+}
+
+aside#findme{
+	width: 15%;
+	float:right;
+	text-align: center;
+}
+
+aside#findme h1{
+	font-size: 1em;
+}
+
+/* Make icons at correct size */
+aside#findme i{
+	font-size: 2em;
+}
+
+footer{
+	clear: both; /* remove floats */
+	border-bottom: none;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+/* basic style */
+footer h1, footer h2{
+	display: inline; /* Remove breakline */
+	color: var(--color-txt);
+	font-size: 1rem;
+	text-shadow: none;
+}
+
+footer h2{font-weight:normal;}
+
+/* After each link (each menu part), add a line break ('\A') and 
+make the web browser rends it with 'pre'*/
+footer li div.dropcontent a:after {
+	content:'\A';
+	white-space: pre;
+}
+
+
+/* TESTS */
+footer li {
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	padding: 0.2rem;
+}
+
+details{
+	border-top: none;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	margin-top: 0;
+	padding-top: 0;
+}
+
+details summary{
+	background-color: var(--color-button-idle);
+	display: inline-block;
+	border-style: outset;
+	border-color: var(--color-borders);
+	border-radius: var(--radius-button-borders);
+	padding: 0.2em;
+}
+
+details summary:hover{
+	background-color: var(--colors-button-hover);
+	border-style: inset;
+}
+

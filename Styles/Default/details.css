@@ -1,0 +1,21 @@
+details{
+	border-top: none;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	margin-top: 0;
+	padding-top: 0;
+}
+
+details summary{
+	background-color: var(--color-button-idle);
+	display: inline-block;
+	border-style: outset;
+	border-color: var(--color-borders);
+	border-radius: var(--radius-button-borders);
+	padding: 0.2em;
+}
+
+details summary:hover{
+	background-color: var(--colors-button-hover);
+	border-style: inset;
+}

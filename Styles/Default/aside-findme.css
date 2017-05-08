@@ -1,0 +1,14 @@
+aside#findme{
+	width: 15%;
+	float:right;
+	text-align: center;
+}
+
+aside#findme h1{
+	font-size: 1em;
+}
+
+/* Make icons at correct size */
+aside#findme i{
+	font-size: 2em;
+}
