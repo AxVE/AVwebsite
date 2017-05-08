@@ -58,6 +58,9 @@
 		<details>
 			<summary>Détails du site</summary>
 			<p>Ce site est pleinement HTML5/CSS3 fonctionnel.</p>
+			<a href="http://www.w3.org/html/logo/">
+				<img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" width="165" height="64" alt="HTML5 Powered with CSS3 / Styling, and Semantics" title="HTML5 Powered with CSS3 / Styling, and Semantics">
+			</a>
 			<figure>
 				<figcaption>Il est recommandé d'utiliser un des navigateurs suivants :</figcaption>
 				<ul>
