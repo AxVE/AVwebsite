@@ -32,7 +32,8 @@
 				*/
 				$pages = array(
 					"accueil" => "accueil.html",
-					"av" => "axelverdier.html"
+					"av" => "axelverdier.html",
+					"denovogpu" => "denovogpu.html"
 				);
 				$pagesPath="Ressources/Pages/";
 

@@ -1,0 +1,42 @@
+<h1>DeNovoGPU</h2>
+<h2>Programme d'alignement DeNovo utilisant la technologie GPU</h2>
+<p>
+	Ce programme est un alignement DeNovo à l'aide d'un GPU.
+	Le but initial n'est pas de recréer un outil mais de <strong>tester</strong> d'autres méthode, si un GPU actuel est capable de vraiment <strong>supporter la charge mémoire</strong> et de <strong>m'entraîner</strong> à utiliser la technologie GPU.<br />
+	Il existe déjà différents programmes d'alignement utilisant un GPU, ils sont généralement basés sur un graphe de De-Bruijn.
+	Voici une liste non-exhaustive de ces programmes :
+	<ul>
+		<li>Velvet</li>
+		<li>SOAP</li>
+		<li>Abyss</li>
+		<li>Ray</li>
+	</ul>
+</p>
+<h2>Principe simplifié du fonctionnement</h2>
+<p>
+	Le principe de base est simpliste :
+	<ol>
+		<li>On récupère les séquences (reads), chaque séquence est considérée comme un contig.</li>
+		<li>On calcule un score de fusion entre chaque contig dans une matrice.</li>
+		<li>On fusionne les contigs avec un score supèrieur à une valeur minimale en faisant attention au "cross-fusion" (2 paires fusionnables utilisant un même contig).
+		<li>Si au moins 2 contigs ont pu être fusionnés, on retourne à l'étape 2.</li>
+		<li>Finalement, on peut remapper toutes les séquences sur leur contig final afin d'augmenter la justesse de ceux-ci.</li>
+	</ol>
+	L'étape 2 est donc facilement parallélisable et peut être effectué sur un GPU si la mémoire disponible est suffisante.
+	L'étape 3 est également parallélisable mais plus difficilement.<br />
+	Il y a 2 algorithmes de fusion nécessaires :
+	<ul>
+		<li>L'étape 2 nécessite un algorithme qui consomme le moins de mémoire possible et qui retourne un score (un pourcentage) de fusion entre 2 séquences.</li>
+		<li>L'étape 3 nécessite un algorithme le plus juste possible et qui retourne la séquence de la fusion entre les 2 séquences.</li>
+	</ul>
+	Pour les 2 algorithmes, le temps requis est secondaire par rapport à leur justesse et aussi à la charge mémoire pour l'algorithme de l'étape 2.
+</p>
+<h2>Pré-requis</h2>
+<p>
+	<ul>
+		<li><strong>g++ :</strong> g++ (GCC) 6.3.1 20170109 (support de c++14).
+		<li><strong>OpenCL :</strong> 2.1
+		<li><strong>OpenCL Wrapper C++ API:</strong> 1.2
+		<li><strong>Linux</strong>
+	</ul>
+</p>
